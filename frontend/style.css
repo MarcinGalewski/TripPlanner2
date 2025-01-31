@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+  }
+  
+  header {
+    background: #4CAF50;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .section-container {
+    padding: 1rem 2rem;
+    background: #fff;
+    margin: 1rem;
+    border-radius: 4px;
+  }
+  
+  .plans-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .plan-item {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 4px;
+    flex: 1 0 300px; /* minimalna szerokość 300px */
+    background: #fafafa;
+  }
+  
+  .plan-item h3 {
+    margin-top: 0;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="date"],
+  input[type="email"],
+  select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button#generate-plan {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.7rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button#generate-plan:hover {
+    background-color: #45a049;
+  }
+  
+  .plan-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #e7f7e4;
+    border: 1px solid #c7e5bc;
+    display: none; /* Ukrywamy do momentu, aż pojawi się wynik */
+  }
+  
+  .hint {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  footer {
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  

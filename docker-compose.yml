@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: trip_db
+    restart: always
+    environment:
+      POSTGRES_DB: tripplanner
+      POSTGRES_USER: tripplanner
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: trip_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      # Baza danych
+      DATABASE_ENGINE: django.db.backends.postgresql
+      DATABASE_NAME: tripplanner
+      DATABASE_USER: tripplanner
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+
+      # Django
+      SECRET_KEY: "django-insecure-++2)6&l^g*sjq&79hwk(o6#--92hmv(y1jsxul9t^=z0a@+$5l"
+      DEBUG: True
+      ALLOWED_HOSTS: "*"
+
+      # E-mail (opcjonalnie, jeśli chcesz przesłaniać z .env - usuń lub dostosuj)
+      EMAIL_HOST: smtp.example.com
+      EMAIL_PORT: 587
+      EMAIL_HOST_USER: user@example.com
+      EMAIL_HOST_PASSWORD: password
+
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/backend
+      - ./frontend:/backend/static/
+    command: >
+      sh -c "pipenv run python manage.py migrate &&
+             pipenv run python manage.py collectstatic --noinput &&
+             pipenv run python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  postgres_data:

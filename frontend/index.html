@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wycieczkomat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Wycieczkomat</h1>
+  </header>
+
+  <main>
+    <!-- SEKCJA 1: GOTOWE PLANY -->
+    <section id="gotowe-plany" class="section-container">
+      <h2>Wybierz gotowy plan</h2>
+      <div id="plany-lista" class="plans-container">
+        <!-- Lista planów będzie wczytana dynamicznie (script.js) -->
+      </div>
+    </section>
+
+    <!-- SEKCJA 2: INDYWIDUALNY PLAN -->
+    <section id="indywidualny-plan" class="section-container">
+      <h2>Stwórz indywidualny plan w PDF</h2>
+      <form id="plan-form">
+        <!-- Lista 20 najpopularniejszych miast -->
+        <div class="form-group">
+          <select>
+            <option value="">-- Wybierz miasto --</option>
+            <option value="Nowy Jork">Nowy Jork</option>
+            <option value="Londyn">Londyn</option>
+            <option value="Paryż">Paryż</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Kapsztad">Kapsztad</option>
+            <option value="Dubaj">Dubaj</option>
+            <option value="Rzym">Rzym</option>
+            <option value="Ateny">Ateny</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+          <label for="preferences">Preferencje (rodzaj wycieczki):</label>
+          <select id="preferences" name="preferences" required>
+            <option value="">-- Wybierz preferencję --</option>
+            <option value="Zwiedzanie">Zwiedzanie</option>
+            <option value="Rekreacja">Rekreacja</option>
+            <option value="Rozrywka">Rozrywka</option>
+          </select>
+        </div>
+
+        <!-- Daty wyjazdu -->
+        <div class="form-group">
+          <label for="start-date">Data rozpoczęcia:</label>
+          <input type="date" id="start-date" name="startDate" required>
+        </div>
+        <div class="form-group">
+          <label for="end-date">Data zakończenia:</label>
+          <input type="date" id="end-date" name="endDate" required>
+        </div>
+
+        <button type="submit" id="generate-plan">Generuj i wyślij PDF</button>
+      </form>
+
+      <!-- Miejsce na informację o wyniku -->
+      <div id="indywidualny-plan-wynik" class="plan-result"></div>
+    </section>
+
+    <!-- SEKCJA 3: ADRES E-MAIL (na końcu) -->
+    <section id="email-section" class="section-container">
+      <h2>Na ten adres wyślemy plan wycieczki</h2>
+      <div class="form-group">
+        <label for="global-email">Adres e-mail:</label>
+        <input type="email" id="global-email" name="email" placeholder="Podaj e-mail" required>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Wycieczkomat</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
